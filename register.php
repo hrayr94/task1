@@ -21,15 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Validate inputs (basic validation, you can add more as needed)
     if (empty($name) || empty($email) || empty($password)) {
         echo "All fields are required.";
     } else {
-        // Hash the password using PHP's password_hash function
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         try {
-            // Prepare SQL statement to insert data into database
             $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':email', $email);
