@@ -25,11 +25,11 @@ if (empty($name) || empty($email) || empty($password)) {
 
         // Execute the statement and check for success
         if ($stmt->execute()) {
-            echo "Registration successful!";
+            echo 'Registration successful!';
         } else {
-            echo "Error: Unable to execute the query.";
+            echo 'Error: Unable to execute the query.';
         }
     } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
+        echo 'Error: ' . $e->getMessage();
     }
 }
